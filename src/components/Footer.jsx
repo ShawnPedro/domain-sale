@@ -1,5 +1,5 @@
 import React from 'react'
-import godaddy from '/src/assets/godaddy-img.png'
+import godaddy from "../assets/godaddy-img.png";
 
 const footer = () => {
   return (
