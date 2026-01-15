@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoStarSharp } from 'react-icons/io5'
-import godaddy from '/src/assets/godaddy-img.png'
+// import godaddy from '/src/assets/godaddy-img.png'
+import godaddy from "../assets/godaddy-img.png";
 
 const Navbar = () => {
   return (
