@@ -262,7 +262,7 @@ const formatPhoneNumber = (value) => {
             <div className="flex items-center gap-3 p-4 border border-black/40 rounded-md bg-gray-50">
 
             <div className="space-y-1 flex-1">
-            <p className="text-sm ">
+            <p className="text-sm capitalize">
               <strong>{savedBillingData.firstName} {savedBillingData.lastName}</strong>
             </p>
             <p className="text-sm capitalize">
