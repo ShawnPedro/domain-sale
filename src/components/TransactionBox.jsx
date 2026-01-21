@@ -33,7 +33,7 @@ const TransactionBox = () => {
         <p className='w-fit text-[12px] font-medium py-1 px-2 rounded-md bg-[#a6fff8] flex items-center gap-0.5'><IoCheckmarkCircleOutline /> VERIFIED DOMAIN</p>
         </div>
 
-        <p>Own it today for $ 499 and make it yours.</p>
+        <p>Own it today for $ 375 and make it yours.</p>
 
     </div>
     {/* ENd of Top Text */}
@@ -49,7 +49,7 @@ const TransactionBox = () => {
         </div>
         
 
-        <p className='text-[17px] font-semibold text-[#00a4a6]'>USD $499</p>
+        <p className='text-[17px] font-semibold text-[#00a4a6]'>USD $375</p>
         </div>
 
     </section>
