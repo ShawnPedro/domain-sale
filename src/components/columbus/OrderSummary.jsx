@@ -115,7 +115,7 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
       <div className="space-y-3 mb-4">
         <div className="flex justify-between">
           <p>Subtotal</p>
-          <p className="font-mono">$499.00</p>
+          <p className="font-mono">$399.00</p>
         </div>
 
         <div className="flex justify-between">
@@ -129,7 +129,7 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
       {/* Total */}
       <div className="flex justify-between items-center mb-6">
         <p className="text-lg font-semibold">Total (USD)</p>
-        <p className="text-xl font-semibold text-teal-700">$<span className="font-mono">500.94</span></p>
+        <p className="text-xl font-semibold text-teal-700">$<span className="font-mono">400.94</span></p>
       </div>
 
       {/* Loading Card */}
