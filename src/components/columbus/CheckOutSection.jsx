@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PaymentMethod from './PaymentMethod'
 import OrderSummary from './OrderSummary'
-import OrderHistory from './OrderHistory';
+import orderService from '../../appwrite/OrderService';
 
 const CheckOutSection = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -9,40 +9,48 @@ const CheckOutSection = () => {
     const [savedBillingData, setSavedBillingData] = useState(null);
     const [orders, setOrders] = useState([]);
 
-    const handleCompletePayment = () => {
+    const handleCompletePayment = async () => {
         const orderData = {
           id: Date.now(),
           timestamp: new Date().toISOString(),
-          payment: savedCardData,    // Contains cardNumber, expiryDate, cvc, cardType
-          billing: savedBillingData, // Contains firstName, lastName, email, etc.
-          total: 500.94
+          payment: savedCardData,
+          billing: savedBillingData,
+          total: 400.94
         };
         
-        setOrders([orderData, ...orders]);
-      };
+        try {
+          // Save to Appwrite
+          await orderService.createOrder(orderData);
+          
+          // Update local state
+          setOrders([orderData, ...orders]);
+          
+          console.log('Order saved to Appwrite successfully!');
+        } catch (error) {
+          console.error('Failed to save order:', error);
+          alert('Failed to save order.');
+        }
+    };
 
-      // Load orders from localStorage on mount
-useEffect(() => {
-    const savedOrders = localStorage.getItem('orders');
-    if (savedOrders) {
-        setOrders(JSON.parse(savedOrders));
-    }
-}, []);
-
-// Save orders to localStorage whenever they change
-useEffect(() => {
-    if (orders.length > 0) {
-        localStorage.setItem('orders', JSON.stringify(orders));
-    }
-}, [orders]);
-
+    // Load orders from Appwrite on mount
+    useEffect(() => {
+        const fetchOrders = async () => {
+            try {
+                const fetchedOrders = await orderService.getAllOrders();
+                setOrders(fetchedOrders);
+            } catch (error) {
+                console.error('Error loading orders:', error);
+            }
+        };
+        
+        fetchOrders();
+    }, []);
 
     // Delay the whole page before Loading
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 2000);
-
         return () => clearTimeout(timer);
     }, []);
 
@@ -81,17 +89,12 @@ useEffect(() => {
                             onCompletePayment={handleCompletePayment}
                             savedCardData={savedCardData}
                             savedBillingData={savedBillingData}
-                            />
+                        />
                     </div>
                 </div>
             </div>
 
-            {/* Add Order History Component Below */}
-            {/* <div className='w-full flex justify-center items-center px-4 lg:px-0'>
-                <div className='w-full md:w-[89%]'>
-                    <OrderHistory orders={orders} />
-                </div>
-            </div> */}
+           
         </div>
     )
 }
