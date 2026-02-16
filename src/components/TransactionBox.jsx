@@ -14,7 +14,7 @@ const TransactionBox = ({ domainName, price }) => {
         setTimeout(() => {
             setIsLoading(false);
             // Pass domain name and price via URL parameters
-            navigate(`/checkout?domain=${encodeURIComponent(domainName)}&price=${price}`);
+            navigate(`/checkout?domain=${encodeURIComponent(domainName.toLowerCase())}&price=${price}`);
         }, 2500);
     };
 
