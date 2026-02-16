@@ -1,34 +1,43 @@
 import React, { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import PaymentMethod from './PaymentMethod'
 import OrderSummary from './OrderSummary'
 import orderService from '../../appwrite/OrderService';
 
 const CheckOutSection = () => {
+    const [searchParams] = useSearchParams();
+    const domainName = searchParams.get('domain') || 'ColumbusRealEstate.com';
+    const price = parseFloat(searchParams.get('price')) || 399;
+    
     const [isLoading, setIsLoading] = useState(true);
     const [savedCardData, setSavedCardData] = useState(null);
     const [savedBillingData, setSavedBillingData] = useState(null);
     const [orders, setOrders] = useState([]);
 
+    // Calculate total with VAT
+    const subtotal = price;
+    const vatAndFees = (price * 0.00486).toFixed(2); // ~0.49% VAT
+    const total = (parseFloat(subtotal) + parseFloat(vatAndFees)).toFixed(2);
+
     const handleCompletePayment = async () => {
         const orderData = {
-          id: Date.now(),
-          timestamp: new Date().toISOString(),
-          payment: savedCardData,
-          billing: savedBillingData,
-          total: 400.94
+            payment: savedCardData,
+            billing: savedBillingData,
+            total: parseFloat(total)
         };
         
         try {
-          // Save to Appwrite
-          await orderService.createOrder(orderData);
-          
-          // Update local state
-          setOrders([orderData, ...orders]);
-          
-          console.log('Order saved to Appwrite successfully!');
+            // Save to Appwrite
+            await orderService.createOrder(orderData);
+            
+            // Update local state
+            const fetchedOrders = await orderService.getAllOrders();
+            setOrders(fetchedOrders);
+            
+            console.log('Order saved to Appwrite successfully!');
         } catch (error) {
-          console.error('Failed to save order:', error);
-          alert('Failed to save order.');
+            console.error('Failed to save order:', error);
+            alert('Failed to save order.');
         }
     };
 
@@ -85,6 +94,10 @@ const CheckOutSection = () => {
                     </div>
                     <div className='w-full lg:w-auto lg:sticky lg:top-4 lg:self-start'>
                         <OrderSummary 
+                            domainName={domainName}
+                            subtotal={subtotal}
+                            vatAndFees={vatAndFees}
+                            total={total}
                             isPaymentComplete={savedCardData && savedBillingData}
                             onCompletePayment={handleCompletePayment}
                             savedCardData={savedCardData}
@@ -93,8 +106,6 @@ const CheckOutSection = () => {
                     </div>
                 </div>
             </div>
-
-           
         </div>
     )
 }

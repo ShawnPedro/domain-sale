@@ -4,7 +4,14 @@ import starImg from "/src/assets/star-rating.png"
 import trustImg from "/src/assets/trustImg.png"
 
 // eslint-disable-next-line react/prop-types
-const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
+const OrderSummary = ({ 
+    domainName, 
+    subtotal, 
+    vatAndFees, 
+    total, 
+    isPaymentComplete, 
+    onCompletePayment 
+}) => {
    const [openModal, setOpenModal] = useState(false);
    const [payModal, setPayModal] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +48,6 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
     }
   }, [payModal]);
 
-
   return (
     <div>
     <div className="w-full lg:w-[400px] bg-[#f7f7f7] rounded-lg p-4 md:p-6 text-sm mb-4 lg:mb-8">
@@ -52,7 +58,7 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
       {/* Items row */}
       <div className="flex justify-between items-center mb-3">
         <p className="">1 items</p>
-        <button className="text-[16px] font-semibold font-mono">ColumbusRealEstate.com</button>
+        <button className="text-[16px] font-semibold font-mono">{domainName}</button>
       </div>
 
       <hr className="mb-4" />
@@ -115,12 +121,12 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
       <div className="space-y-3 mb-4">
         <div className="flex justify-between">
           <p>Subtotal</p>
-          <p className="font-mono">$399.00</p>
+          <p className="font-mono">${parseFloat(subtotal).toFixed(2)}</p>
         </div>
 
         <div className="flex justify-between">
           <p className="">VAT and Fees</p>
-          <p className="font-mono">$1.94</p>
+          <p className="font-mono">${parseFloat(vatAndFees).toFixed(2)}</p>
         </div>
       </div>
 
@@ -129,7 +135,7 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
       {/* Total */}
       <div className="flex justify-between items-center mb-6">
         <p className="text-lg font-semibold">Total (USD)</p>
-        <p className="text-xl font-semibold text-teal-700">$<span className="font-mono">400.94</span></p>
+        <p className="text-xl font-semibold text-teal-700">$<span className="font-mono">{parseFloat(total).toFixed(2)}</span></p>
       </div>
 
       {/* Loading Card */}
@@ -195,7 +201,6 @@ const OrderSummary = ({ isPaymentComplete, onCompletePayment }) => {
       </p>
 
     </div>
-
 
       {/* Star Rating */}
       <div className="flex flex-col items-center justify-center my-8 gap-1.5">
