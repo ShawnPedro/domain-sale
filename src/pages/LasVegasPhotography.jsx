@@ -7,7 +7,7 @@ function LasVegasPhotography() {
   return (
     <HomeSection 
             domainName="VegasPhotographer.com"
-            price={200}
+            price={100}
             checkoutUrl="/checkout"
         />
   )
