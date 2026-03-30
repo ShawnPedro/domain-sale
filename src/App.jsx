@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './index.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
 // import Home from './pages/Home'
@@ -10,6 +9,7 @@ import Checkout from './pages/Checkout'
 import OrderHistory from './components/columbus/OrderHistory'
 import Home from './pages/Home'
 import LasVegasPhotography from './pages/LasVegasPhotography'
+import NyPhotography from './pages/NyPhotography'
 
 
 function App() {
@@ -18,10 +18,12 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Navigate to="/sale/domain-name=vegasphotographer.com" replace />} />
+        <Route path='/' element={<Navigate to="/sale/domain-name=nyphotography.com" replace />} />
+        
         {/* <Route path='forsale/houstonrealestate.com' element={<Houstonrealestate />} /> */}
         <Route path='sale/domain-name=columbusrealestate.com' element={<ColumbusRealEstate />} />
         <Route path='sale/domain-name=vegasphotographer.com' element={<LasVegasPhotography />} />
+        <Route path='sale/domain-name=nyphotography.com' element={<NyPhotography />} />
         <Route path='checkout' element={<Checkout />} />
         <Route path='order-history' element={<OrderHistory/>} />
         <Route path='home' element={<Home />} />
