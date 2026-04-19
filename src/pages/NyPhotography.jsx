@@ -7,7 +7,7 @@ function NyPhotography() {
   return (
     <HomeSection 
             domainName="NyPhotography.com"
-            price={150}
+            price={100}
             checkoutUrl="/checkout"
         />
   )
