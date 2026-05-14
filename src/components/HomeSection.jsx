@@ -35,7 +35,7 @@ function HomeSection({ domainName, price, checkoutUrl }) {
                 <div className='w-full h-[300px] md:h-[400px] lg:h-[320px] bg-[#00112c] mb-4 lg:py-14 py-7'>
                     <div className='w-[88%] lg:w-[85%] my-0 mx-auto py-4 flex flex-col gap-4'>
                         <p className='text-white text-[20px] md:text-[30px] font-semibold'>The domain name</p>
-                        <p className=' text-white text-[22px] sm:text-[32px] md:text-[40px] lg:text-[38px] xl:text-[48px] font-semibold my-[-10px] lg:my-[-1rem]'>
+                        <p className=' text-white text-[17px] sm:text-[22px] md:text-[40px] lg:text-[27px] xl:text-[35px] font-semibold my-[-10px] lg:my-[-1rem]'>
                             {domainName}
                         </p>
                         <p className='text-white text-[20px] md:text-[30px] font-semibold'>is for sale!</p>
