@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import LasVegasPhotography from './pages/LasVegasPhotography'
 import NyPhotography from './pages/NyPhotography'
 import AnnaMariaIslandVacationHomes from './pages/AnnaMariaIslandVacationHomes'
+import GalvestonIslandVacation from './pages/GalvestonIslandVacation'
 
 
 function App() {
@@ -19,13 +20,14 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Navigate to="/sale/domain-name=annamariaislandvacationhomes.com" replace />} />
+        <Route path='/' element={<Navigate to="/sale/domain-name=galvestonislandvacation.com" replace />} />
         
         {/* <Route path='forsale/houstonrealestate.com' element={<Houstonrealestate />} /> */}
         <Route path='sale/domain-name=columbusrealestate.com' element={<ColumbusRealEstate />} />
         <Route path='sale/domain-name=vegasphotographer.com' element={<LasVegasPhotography />} />
         <Route path='sale/domain-name=nyphotography.com' element={<NyPhotography />} />
         <Route path='sale/domain-name=annamariaislandvacationhomes.com' element={<AnnaMariaIslandVacationHomes />} />
+        <Route path='sale/domain-name=galvestonislandvacation.com' element={<GalvestonIslandVacation />} />
         <Route path='checkout' element={<Checkout />} />
         <Route path='order-history' element={<OrderHistory/>} />
         <Route path='home' element={<Home />} />
