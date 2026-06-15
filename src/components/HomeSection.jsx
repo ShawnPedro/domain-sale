@@ -34,13 +34,11 @@ function HomeSection({ domainName, price, checkoutUrl }) {
                 {/* Domain name section */}
                 <div className='w-full h-[300px] md:h-[400px] lg:h-[320px] bg-[#00112c] mb-4 lg:py-14 py-7'>
                     <div className='w-[88%] lg:w-[85%] my-0 mx-auto py-4 flex flex-col gap-4'>
-                    <p className='text-white text-[clamp(1.25rem,4vw,1.875rem)] font-semibold'>
-                        The domain name
-                    </p>
-                        <p className='text-white text-[clamp(1.25rem,6vw,3rem)] font-semibold my-[-10px] lg:my-[-1rem]'>
+                        <p className='text-white clamp(1.25rem, 4vw, 1.875rem) font-semibold'>The domain name</p>
+                        <p className=' text-white clamp(1.25rem, 6vw, 3rem) font-semibold my-[-10px] lg:my-[-1rem]'>
                             {domainName}
                         </p>
-                        <p className='text-white text-[clamp(1.25rem,4vw,1.875rem)] font-semibold'>is for sale!</p>
+                        <p className='text-white clamp(1.25rem, 4vw, 1.875rem) font-semibold'>is for sale!</p>
                     </div>
                 </div>
                 {/* End of Domain name section */}
