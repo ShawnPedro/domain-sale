@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"; 
 import cardIcon from "/src/assets/credicard.png"
 import { Amex, Discover, Mastercard, Paypal, Visa,  } from 'react-payment-logos/dist/flat';
+import SignIn from "../SignIn";
  
 const PaymentMethod = ({ 
   savedCardData, 
@@ -243,9 +244,13 @@ const formatPhoneNumber = (value) => {
   return ( 
     <div className="space-y-4">
 
+      {/* User Log in / Sign Up */}
+      <SignIn />
+
+
       {/* Billing Information Section */}
-      <div className="w-full max-w-[700px] border border-black/70 rounded-md p-3 md:p-4">
-        <div className="text-lg font-semibold pb-2 mb-4 border-b border-black/40">
+      <div className="w-full max-w-[700px] border border-gray-300 rounded-md p-3 md:p-4">
+        <div className="text-lg font-semibold pb-2 mb-4 border-b border-gray-300">
           Billing Information
         </div>
 
@@ -259,7 +264,7 @@ const formatPhoneNumber = (value) => {
         )}
 
         {!showBillingForm && savedBillingData && (
-            <div className="flex items-center gap-3 p-4 border border-black/40 rounded-md bg-gray-50">
+            <div className="flex items-center gap-3 p-4 border border-gray-300 rounded-md bg-gray-50">
 
             <div className="space-y-1 flex-1">
             <p className="text-sm capitalize">
@@ -294,7 +299,7 @@ const formatPhoneNumber = (value) => {
                 name="country"
                 value={billingData.country}
                 onChange={handleBillingInputChange}
-                className="w-full border border-[#808080] px-3 py-2 outline-none"
+                className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                 autoComplete="country"
                 required
               >
@@ -322,7 +327,7 @@ const formatPhoneNumber = (value) => {
                 name="email"
                 value={billingData.email}
                 onChange={handleBillingInputChange}
-                className="w-full border border-[#808080] px-3 py-2 outline-none"
+                className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                 required
               />
             </div>
@@ -336,7 +341,7 @@ const formatPhoneNumber = (value) => {
                   name="firstName"
                   value={billingData.firstName}
                   onChange={handleBillingInputChange}
-                  className="w-full border border-[#808080] px-3 py-2 outline-none"
+                  className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                   autoComplete="given-name"
                   required
                 />
@@ -348,7 +353,7 @@ const formatPhoneNumber = (value) => {
                   name="lastName"
                   value={billingData.lastName}
                   onChange={handleBillingInputChange}
-                  className="w-full border border-[#808080] px-3 py-2 outline-none"
+                  className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                   autoComplete="family-name"
                   required
                 />
@@ -359,7 +364,7 @@ const formatPhoneNumber = (value) => {
             <div>
               <label className="block text-sm font-medium mb-1">Phone Number</label>
               <div className="flex gap-2">
-                <select className="border border-[#808080] px-2 py-2 outline-none">
+                <select className="border border-gray-300 px-2 py-2 outline-none">
                   <option>+ 1</option>
                   <option>+ 44</option>
                   <option>+ 46</option>
@@ -377,7 +382,7 @@ const formatPhoneNumber = (value) => {
                   name="phone"
                   value={billingData.phone}
                   onChange={handlePhoneChange}  // Changed from handleBillingInputChange
-                  className="flex-1 border border-[#808080] px-3 py-2 outline-none"
+                  className="flex-1 border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                   autoComplete="tel"
                   placeholder="(XXX) XXX-XXXX"
                   maxLength={14}  // Added maxLength
@@ -394,7 +399,7 @@ const formatPhoneNumber = (value) => {
                 name="address"
                 value={billingData.address}
                 onChange={handleBillingInputChange}
-                className="w-full border border-[#808080] px-3 py-2 outline-none"
+                className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                 autoComplete="street-address"
                 required
               />
@@ -408,7 +413,7 @@ const formatPhoneNumber = (value) => {
                 name="addressCont"
                 value={billingData.addressCont}
                 onChange={handleBillingInputChange}
-                className="w-full border border-[#808080] px-3 py-2 outline-none"
+                className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                 autoComplete="address-line2"
               />
             </div>
@@ -421,7 +426,7 @@ const formatPhoneNumber = (value) => {
                 name="city"
                 value={billingData.city}
                 onChange={handleBillingInputChange}
-                className="w-full border border-[#808080] px-3 py-2 outline-none"
+                className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                 autoComplete="address-level2"
                 required
               />
@@ -436,7 +441,7 @@ const formatPhoneNumber = (value) => {
                   name="province"
                   value={billingData.province}
                   onChange={handleBillingInputChange}
-                  className="w-full border border-[#808080] px-3 py-2 outline-none"
+                  className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                   autoComplete="address-level1"
                 />
               </div>
@@ -447,7 +452,7 @@ const formatPhoneNumber = (value) => {
                   name="zipCode"
                   value={billingData.zipCode}
                   onChange={handleBillingInputChange}
-                  className="w-full border border-[#808080] px-3 py-2 outline-none"
+                  className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                   autoComplete="postal-code"
                   required
                 />
@@ -462,7 +467,7 @@ const formatPhoneNumber = (value) => {
                 name="organization"
                 value={billingData.organization}
                 onChange={handleBillingInputChange}
-                className="w-full border border-[#808080] px-3 py-2 outline-none"
+                className="w-full border border-gray-300 px-3 py-2 outline-none transition-all duration-150 hover:border hover:border-black"
                 autoComplete="organization"
               />
             </div>
@@ -489,9 +494,9 @@ const formatPhoneNumber = (value) => {
       {/* End of Billing Information Section */}
 
       {/* Payment Option */}
-      <div className="w-full max-w-[700px] border border-black/70 rounded-md p-3 md:p-4"> 
+      <div className="w-full max-w-[700px] border border-gray-300 rounded-md p-3 md:p-4"> 
  
-        <div className="text-lg font-semibold pb-2 mb-4 border-b border-black/40"> 
+        <div className="text-lg font-semibold pb-2 mb-4 border-b border-gray-300"> 
             Payment Method 
         </div> 
  
@@ -520,7 +525,7 @@ const formatPhoneNumber = (value) => {
         {/* Saved Card Display */}
         {savedCardData && !showCardForm && (
           <div className="mb-4">
-            <div className="flex items-center gap-3 p-4 border border-black/40 rounded-md bg-gray-50">
+            <div className="flex items-center gap-3 p-4 border border-gray-300 rounded-md bg-gray-50">
               <span className="text-2xl">{getCardIcon(savedCardData.cardType)}</span>
               <div className="flex-1">
                 <p className="font-semibold text-gray-900">
@@ -551,9 +556,9 @@ const formatPhoneNumber = (value) => {
           <div className="pt-2 space-y-4"> 
  
             {/* Card Number */} 
-            <div className="w-full border flex items-center border-[#808080]"> 
+            <div className="w-full border flex items-center border-gray-300 hover:border-black"> 
               {currentCardType && (
-                <div className="px-3 text-gray-500 border-r border-[#808080]"> 
+                <div className="px-3 text-gray-500 border-r border-gray-300"> 
                   <span className="text-xl">{getCardIcon(currentCardType)}</span>
                 </div>
               )}
@@ -574,7 +579,7 @@ const formatPhoneNumber = (value) => {
                 value={expiryDate}
                 onChange={handleExpiryDateChange}
                 placeholder="MM/YY *" 
-                className="w-[70%] placeholder:font-semibold border px-3 py-3 border-[#808080] outline-none text-base"
+                className="w-[70%] placeholder:font-semibold border px-3 py-3 border-gray-300 outline-none text-base transition-all duration-150 hover:border hover:border-black"
                 maxLength={5}
               /> 
               <input 
@@ -582,11 +587,11 @@ const formatPhoneNumber = (value) => {
                 value={cvc}
                 onChange={handleCvcChange}
                 placeholder="CVC *" 
-                className="w-[30%] placeholder:font-semibold border px-3 py-3 border-[#808080] outline-none text-base"
+                className="w-[30%] placeholder:font-semibold border px-3 py-3 border-gray-300 outline-none text-base transition-all duration-150 hover:border hover:border-black"
                 maxLength={4}
               /> 
               {currentCardType && (
-                <div className="px-3 text-gray-500 border border-[#808080]"> 
+                <div className="px-3 text-gray-500 border border-gray-300 hover:border-black"> 
                   <span className="text-xl">{getCardIcon(currentCardType)}</span>
                 </div>
               )}

@@ -50,7 +50,7 @@ const OrderSummary = ({
 
   return (
     <div>
-    <div className="w-full lg:w-[400px] bg-[#f7f7f7] rounded-lg p-4 md:p-6 text-sm mb-4 lg:mb-8">
+    <div className="w-full lg:w-[400px] bg-[#F5F7F8] rounded-lg p-4 md:p-6 text-sm mb-4 lg:mb-8">
       
       {/* Header */}
       <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
