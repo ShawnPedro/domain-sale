@@ -7,7 +7,7 @@ function PigeonForgeRealtor() {
   return (
     <HomeSection 
             domainName="PigeonForgeRealtor.com"
-            price={100}
+            price={50}
             checkoutUrl="/checkout"
         />
   )
